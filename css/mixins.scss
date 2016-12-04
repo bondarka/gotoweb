@@ -1,0 +1,10 @@
+$break-mobile: 1300px;
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: $break-mobile) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $break-mobile + 1) { @content; }
+  }
+}

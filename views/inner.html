@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app="gotoweb">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Bondar">
+    <link href="css/style.css" rel="stylesheet"/>
+    <title>gotoweb</title>
+</head>
+
+<body>
+<div class="content-wrapper">
+    <div class="guides">
+
+        <a href="" class="guides_logo"> <img src="../img/logo.png" alt="logo"></a>
+        <div class="guides_box">
+            <div class="guides_info">
+                Добро пожаловать в Gotoweb, выполните несколько простых шагов для начала работы с системой.
+            </div>
+            <div class="guides_steps">
+                <div class="guides_block done">
+                    <div class="guides_step "></div>
+                    <div class="guides_step-info">
+                        Мы просим вас заполнить несколько простых форм.
+                        Которые помогут нам взаимодействовать с вами на дружественном
+                        уровне.
+                    </div>
+                </div>
+                <div class="guides_block active">
+                    <span class="guides_step">2</span>
+                    <div class="guides_step-info">
+                        Введите пожалуйста свой электроный адрес,  он будет логином
+                        к вашему личному кабинету. Придумайте пароль.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="guides_footer">
+            <a href="#" class="guides_help">Нужна помощь?</a>
+        </div>
+    </div>
+
+    <!--form-->
+    <div class="form" ng-controller="MainCtrl">
+        <form class="form_block" action="" enctype="multipart/form-data" method="POST"  name="userForm" ng-submit="submitForm()" novalidat>
+            <div class="form_content">
+                <!-- <div class="alert alert-danger signup-error" role="dialog">
+                </div> -->
+                <div class="form_group">
+                    <label class="form_label"> Электронная почта / Логин</label>
+                    <div class="form_control-box">
+                        <input type="email" name="email" class="form_control" ng-model="email" ng-pattern="/^[a-z0-9_\-\.]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/"
+                               placeholder="myemail@mail.email" required>
+                        <i class="form_control-feedback">
+                            <span class="form_control-counter">+{{30-userForm.email.$viewValue.length}}</span>
+                        </i>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <label class="form_label">Пароль <span class="optional">Не менее 6 символов</span></label>
+                    <div class="form_control-box">
+                        <input type="password" name="pass" class="form_control" ng-model="pass" ng-minlength="6" ng-maxlength="20"  maxlength="20" required>
+                        <i class="form_control-feedback">
+                            <span class="form_control-counter">+{{20-userForm.pass.$viewValue.length}}</span>
+                        </i>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <label class="form_label">Повторите пароль</label>
+                    <div class="form_control-box">
+                        <input type="password" name="confirm" class="form_control" ng-model="confirm" ng-minlength="6" ng-maxlength="20"  maxlength="20" required>
+                        <i class="form_control-feedback">
+                            <span class="form_control-counter">+{{20-userForm.confirm.$viewValue.length}}</span>
+                        </i>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <label class="form_label">Введите капчу</label>
+                    <div class="form_control-box capcha">
+                      <p class="capcha_text">Зона Капчи</p>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-next">Регистрация</a>
+                <a href="index.html" class="btn btn-prev">Вернуться назад</a>
+
+                <!--<div class="clearfix"></div>-->
+            </div>
+            <p class="form_notes">Нажимая кнопку Регистрация, вы соглашаетесь с <a href="#">правилами пользования
+                и лицензионым соглашением</a></p>
+        </form>
+
+    </div>
+</div>
+<script type="text/javascript" src="js/vendor.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+
+</html>

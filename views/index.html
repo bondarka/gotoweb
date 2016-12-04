@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="gotoweb">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Bondar">
+    <link href="css/style.css" rel="stylesheet"/>
+    <title>gotoweb</title>
+</head>
+
+<body>
+<div class="content-wrapper">
+    <div class="guides">
+
+        <a href="#" class="guides_logo"> <img src="../img/logo.png" alt="logo"></a>
+        <div class="guides_box">
+            <div class="guides_info">
+                Добро пожаловать в Gotoweb, выполните несколько простых шагов для начала работы с системой.
+            </div>
+            <div class="guides_steps">
+                <div class="guides_block active">
+                    <span class="guides_step ">1</span>
+                    <div class="guides_step-info">
+                        Мы просим вас заполнить несколько простых форм.
+                        Которые помогут нам взаимодействовать с вами на дружественном
+                        уровне.
+                    </div>
+                </div>
+                <div class="guides_block">
+                    <span class="guides_step">2</span>
+                    <div class="guides_step-info">
+                        Введите пожалуйста свой электроный адрес,  он будет логином
+                        к вашему личному кабинету. Придумайте пароль.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="guides_footer">
+            <a href="#" class="guides_help">Нужна помощь?</a>
+        </div>
+    </div>
+
+    <!--form-->
+    <div class="form" ng-controller="MainCtrl">
+        <form class="form_block" action="" enctype="multipart/form-data" method="POST" name="userForm" ng-submit="submitForm()" novalidat>
+            <div class="form_content">
+
+                <div class="form_group">
+                    <label class="form_label">Имя</label>
+                    <div class="form_control-box">
+                        <input type="text" name="name" class="form_control form_text" placeholder="Имя"
+                               ng-model="name" ng-maxlength="20" maxlength="20" required>
+                        <i class="form_control-feedback" >
+                            <span class="form_control-counter">+{{20-userForm.name.$viewValue.length}}</span>
+                        </i>
+                    </div>
+                </div>
+
+                <div class="form_group">
+                    <label class="form_label">Фамилия</label>
+                    <div class="form_control-box">
+                        <input type="text" name="secondname" class="form_control" placeholder="Фамилия"
+                               ng-model="secondname" ng-minlength="2" ng-maxlength="20"  maxlength="20" required>
+                        <i class="form_control-feedback">
+                            <span class="form_control-counter">+{{20-userForm.secondname.$viewValue.length}}</span>
+                        </i>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <label class="form_label">Ваш контактный номер телефона <span class="optional">Не обязателен</span></label>
+                    <div class="form_control-box">
+                        <input type="tel" name="tel" class="form_control form_text" placeholder="5551234567" ng-model="tel" ng-pattern="/^[0-9]{10}$/" maxlength="10">
+                        <i class="form_control-feedback">
+                            <span class="form_control-counter">+{{10-userForm.tel.$viewValue.length}}</span>
+                        </i>
+                    </div>
+                </div>
+                <div class="form_group form_upload">
+                    <div class="form_upload-title">
+                        {{name[0] || "И"}}{{secondname[0] || "Ф"}}
+                    </div>
+                    <div class="form_images">
+
+                    </div>
+                    <div class="form_upload-info">
+                        <p>Перетащите свое изображение в выделенную область или</p>
+                        <input type="file" accept="image/*" class="form_upload-element" multiple />
+                        <a href="#" class="form_upload-link">Выберите его на компьютере</a>
+                    </div>
+                </div>
+                <div class="form_group form_attention">
+                    Размер файла не более - 5МБ, изображения не более - 400х400 px
+                </div>
+                <a href="inner.html" class="btn btn-next">Продолжить</a>
+                <!--<div class="clearfix"></div>-->
+            </div>
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript" src="js/vendor.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+
+</html>
